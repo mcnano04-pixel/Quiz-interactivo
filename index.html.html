@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Quién quiere ser millonario - Yurupary (15 preguntas)</title>
+<style>
+:root{--bg:#001219;--card:#04293a;--accent:#00a8e8;--gold:#ffd166}
+*{box-sizing:border-box}
+body{margin:0;font-family:Inter,Arial,Helvetica,sans-serif;background:radial-gradient(circle at 10% 10%, #003049 0%, var(--bg) 60%);color:#e6eef6}
+.container{max-width:1100px;margin:24px auto;padding:20px;display:grid;grid-template-columns:1fr 320px;gap:20px}
+.header{grid-column:1/3;text-align:center}
+.card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(0,0,0,0.15));border:1px solid rgba(255,255,255,0.04);padding:18px;border-radius:14px;box-shadow:0 6px 30px rgba(0,0,0,0.6)}
+#stage{min-height:320px;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;padding:18px;position:relative;overflow:hidden}
+h1{margin:6px 0;font-size:26px;color:var(--accent);text-shadow:0 0 8px rgba(0,168,232,0.14)}
+#question{font-size:20px;margin:10px 0;padding:8px}
+.options{width:100%;display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:12px}
+.option{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(0,0,0,0.08));padding:12px;border-radius:10px;border:2px solid rgba(0,168,232,0.08);cursor:pointer;transition:transform .22s ease,box-shadow .22s ease,opacity .22s;display:flex;align-items:center;justify-content:center;font-weight:600}
+.option:hover{transform:translateY(-4px);box-shadow:0 8px 20px rgba(0,0,0,0.6)}
+.option.disabled{opacity:.35;pointer-events:none}
+.option.correct{outline:3px solid rgba(34,197,94,0.16);box-shadow:0 8px 30px rgba(34,197,94,0.06)}
+.option.wrong{outline:3px solid rgba(239,68,68,0.12);box-shadow:0 8px 30px rgba(239,68,68,0.06)}
+.controls{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}
+.btn{background:var(--accent);color:#001219;border:none;padding:10px 12px;border-radius:10px;cursor:pointer;font-weight:700}
+.btn.secondary{background:transparent;border:1px solid rgba(255,255,255,0.06);color:#dff6ff}
+#message{margin-top:12px;font-size:18px;height:26px}
+#ladder{padding:12px}
+.ladder-item{padding:8px;border-radius:8px;margin-bottom:6px;display:flex;justify-content:space-between;align-items:center}
+.ladder-item.active{background:linear-gradient(90deg, rgba(255,209,102,0.08), rgba(0,168,232,0.04));border:1px solid rgba(255,209,102,0.12)}
+.footer{grid-column:1/3;text-align:center;margin-top:12px;color:#9fb9c7}
+.fade-enter{animation:fadeIn .45s ease forwards}
+.fade-exit{animation:fadeOut .45s ease forwards}
+@keyframes fadeIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+@keyframes fadeOut{from{opacity:1}to{opacity:0;transform:translateY(-6px)}}
+.suspense-bar{height:6px;border-radius:6px;background:linear-gradient(90deg,var(--accent),var(--gold));width:0%;transition:width 2s linear}
+.top-row{display:flex;justify-content:space-between;gap:12px;align-items:center}
+.prize{font-weight:800;color:var(--gold)}
+.small{font-size:13px;color:#bfe7ff}
+#score{font-weight:700}
+</style>
+</head>
+<body>
+<div class="container">
+  <div class="header" style="grid-column:1/3">
+    <h1>¿Quién quiere ser millonario? — Mito de <span style="color:var(--gold)">Yurupary</span></h1>
+    <p class="small">15 preguntas — Ayudas: 50/50, Público y Llamar al Chamán — Sonidos y transiciones integradas</p>
+
+    <!-- NUEVO: Resumen del mito -->
+    <details style="margin-top:14px;background:rgba(255,255,255,0.03);padding:14px;border-radius:12px;border:1px solid rgba(255,255,255,0.05);text-align:left;cursor:pointer;max-width:780px;margin-left:auto;margin-right:auto;">
+      <summary style="font-weight:700;color:var(--accent);font-size:16px;">📖 Ver resumen del Mito de Yurupary</summary>
+      <p style="margin-top:10px;line-height:1.5;color:#dce3ea;">
+        En los tiempos antiguos, cuando los árboles del Amazonas rozaban el cielo y los ríos cantaban melodías sagradas, nació Yurupary, hijo de la Luna y de una virgen de la tierra. Su llegada estaba profetizada: sería el portador de las leyes sagradas para los pueblos del Amazonas.
+      </p>
+      <p style="line-height:1.5;color:#dce3ea;">
+        Dotado de poderes sobrenaturales, Yurupary podía hablar con los animales, hacer crecer plantas con la mirada y recibir visiones del futuro. Creó instrumentos ceremoniales llamados <strong>maguaré</strong>, cuyas flautas conectaban el mundo terrenal con el espiritual.
+      </p>
+      <p style="line-height:1.5;color:#dce3ea;">
+        Cuando Seucy, una mujer curiosa, rompió la ley al observar los instrumentos sagrados, fue transformada en un árbol de guarumá. Este suceso llevó a Yurupary a comprender que las leyes debían equilibrarse con compasión, por lo que dedicó su vida a enseñar rituales, medicina natural y respeto por la selva.
+      </p>
+      <p style="line-height:1.5;color:#dce3ea;">
+        Al final de su vida terrenal, Yurupary entregó sus últimas enseñanzas bajo la luz de la luna llena y se convirtió en un espíritu eterno. Hoy, los pueblos indígenas siguen honrando su legado y aseguran que su presencia vive en el viento, el canto de los pájaros y el murmullo del bosque.
+      </p>
+    </details>
+  </div>
+
+  <div class="card" id="stage">
+    <div class="top-row" style="width:100%">
+      <div>
+        <div class="small">Pregunta</div>
+        <div id="qnum" class="prize">1 / 15</div>
+      </div>
+      <div>
+        <div class="small">Premio actual</div>
+        <div id="prize" class="prize">$0</div>
+      </div>
+      <div style="text-align:right">
+        <div class="small">Puntaje</div>
+        <div id="score">0</div>
+      </div>
+    </div>
+
+    <div style="width:100%;margin-top:14px">
+      <div class="suspense-bar" id="sbar"></div>
+    </div>
+
+    <div id="question" class="fade-enter">Pregunta se cargará...</div>
+
+    <div class="options" id="options"></div>
+
+    <div class="controls">
+      <button class="btn" id="btn5050">50/50</button>
+      <button class="btn" id="btnaud">Público</button>
+      <button class="btn" id="btncall">Llamar al Chamán</button>
+      <button class="btn secondary" id="btnwalk">Retirarme</button>
+    </div>
+
+    <div id="message"></div>
+  </div>
+
+  <div class="card" id="ladder">
+    <h3>Escalera de premios</h3>
+    <div id="ladderList"></div>
+    <hr style="border:none;height:1px;background:rgba(255,255,255,0.03);margin:10px 0">
+    <div class="small">Mejor puntaje local: <span id="best">0</span></div>
+  </div>
+
+  <div class="footer">Hecho con cariño por la selva — Puedes descargar este archivo y usarlo offline.</div>
+</div>
+
+<script>
+// -----------------------
+// Datos: 15 preguntas sobre Yurupary
+// -----------------------
+const questions = [
+  {q:"¿Quién es Yurupary?", a:["Hijo de la Luna y una virgen","Un guerrero de guerra","Un dios del sol","Un comerciante"], c:0},
+  {q:"¿Qué creó Yurupary para las ceremonias?", a:["Flautas maguaré","Escudos ceremoniales","Tambores de guerra","Collares de oro"], c:0},
+  {q:"¿Qué podían hacer las flautas maguaré?", a:["Conectar lo terrenal con lo espiritual","Curar heridas físicas","Precipitar lluvia inmediata","Crear fuego"], c:0},
+  {q:"¿Cuál fue el castigo de Seucy por ver las flautas?", a:["Transformarla en árbol de guarumá","Desterrarla al desierto","Convertirla en río","Robarle la voz"], c:0},
+  {q:"¿Qué enseñó Yurupary a los pueblos?", a:["Rituales, medicina y respeto por la selva","A construir balsas","A pescar con redes modernas","A escribir en pergaminos"], c:0},
+  {q:"¿Qué simboliza la guarumá en la historia?", a:["Arrepentimiento y memoria","Fuerza y guerra","Riqueza material","Velocidad"], c:0},
+  {q:"¿Cómo se comunicaba Yurupary con los seres?", a:["A través de sueños y la naturaleza","Con señales de humo","Con tambores kilométricos","A través de espejos"], c:0},
+  {q:"¿Qué papel tenían los ancianos según el mito?", a:["Transmitir enseñanzas y tradiciones","Organizar mercados","Construir casas nuevas","Dirigir ejércitos"], c:0},
+  {q:"¿Cuál es una de las reglas que dejó Yurupary?", a:["Respetar la selva porque es la madre","No hablar durante la noche","Cazar sin permiso","Vender las tierras"], c:0},
+  {q:"¿Qué elemento natural aparece como guía en el mito?", a:["La Luna","El volcán","La tormenta eléctrica","El desierto"], c:0},
+  {q:"¿Qué ofrecía Yurupary a los jóvenes?", a:["Pruebas de iniciación para ser guardianes","Riquezas falsas","Armas de hierro","Vestidos lujosos"], c:0},
+  {q:"¿Dónde se celebraban las ceremonias principales?", a:["Junto a ríos y bajo la luna llena","En la cima de montañas heladas","En plazas de ciudades grandes","En mercados nocturnos"], c:0},
+  {q:"¿Qué enseñanza médica dejó Yurupary?", a:["Uso de plantas y brebajes sagrados","Cirugía moderna","Farmacia química","Medicina de cemento"], c:0},
+  {q:"¿Qué representa el sonido del bosque según la leyenda?", a:["Mensajes de Yurupary","Un peligro inminente","La necesidad de comerciar","La llegada del invierno"], c:0},
+  {q:"¿Cómo finaliza la historia de Yurupary?", a:["Se transforma en espíritu que habita la selva","Muere y es olvidado","Se va a la ciudad","Se convierte en río"], c:0},
+
+  // --- Preguntas inferenciales ---
+  {q:"Si Yurupary enseñó respeto por la naturaleza, ¿qué actitud esperaría de su pueblo hoy?", a:["Cuidar la selva y evitar destruirla","Expandir ciudades dentro de la selva","Vender tierras a extranjeros","Cazar animales en exceso"], c:0},
+  {q:"El castigo de Seucy muestra que las leyes indígenas…", a:["Se basaban en equilibrio y consecuencias","Se enfocaban solo en castigos físicos","Eran impuestas por extranjeros","No tenían relación con la naturaleza"], c:0},
+  {q:"Si el viento y los sonidos del bosque transmiten mensajes de Yurupary, esto sugiere que…", a:["La naturaleza es un canal espiritual","Los animales hablan como humanos","La selva produce ecos mágicos sin sentido","Los sonidos del bosque deben temerse"], c:0},
+  {q:"El hecho de que Yurupary viaje enseñando a varios pueblos indica que…", a:["Su misión era unificar y guiar culturas","Buscaba dominar territorios","No tenía un propósito claro","Era un cazador nómada"], c:0},
+  {q:"Si los jóvenes debían pasar pruebas de iniciación, se puede inferir que…", a:["La adultez implicaba responsabilidad y servicio","Ser adulto solo dependía de la edad","Todos evitaban estas pruebas","La comunidad no valoraba el esfuerzo"], c:0}
+];
+
+// -----------------------
+// Estado del juego
+// -----------------------
+let idx = 0;
+let used5050 = false;
+let usedAudience = false;
+let usedCall = false;
+let prize = 0;
+let score = 0;
+const ladder = [100,200,300,500,1000,2000,4000,8000,16000,32000,64000,125000,250000,500000,750000,900000,1000000,1200000,1500000,2000000];
+
+// elementos
+const qnum = document.getElementById('qnum');
+const prizeEl = document.getElementById('prize');
+const sbar = document.getElementById('sbar');
+const optionsEl = document.getElementById('options');
+const questionEl = document.getElementById('question');
+const messageEl = document.getElementById('message');
+const ladderList = document.getElementById('ladderList');
+const best = document.getElementById('best');
+const scoreEl = document.getElementById('score');
+
+// init ladder UI
+function renderLadder(){
+  ladderList.innerHTML = '';
+  for(let i=ladder.length-1;i>=0;i--){
+    const div = document.createElement('div');
+    div.className = 'ladder-item' + (i===idx? ' active':'');
+    div.innerHTML = `<div>#${i+1}</div><div>$${ladder[i].toLocaleString()}</div>`;
+    ladderList.appendChild(div);
+  }
+}
+
+// cargar pregunta
+function loadQuestion(){
+  // animations
+  questionEl.classList.remove('fade-enter');
+  void questionEl.offsetWidth;
+  questionEl.classList.add('fade-enter');
+
+  qnum.textContent = `${idx+1} / ${questions.length}`;
+  questionEl.innerHTML = `<strong>${questions[idx].q}</strong>`;
+  optionsEl.innerHTML = '';
+  questions[idx].a.forEach((opt,i)=>{
+    const d = document.createElement('div');
+    d.className = 'option';
+    d.textContent = opt;
+    d.dataset.idx = i;
+    d.addEventListener('click', ()=> choose(parseInt(d.dataset.idx), d) );
+    optionsEl.appendChild(d);
+  });
+  updatePrize();
+  renderLadder();
+}
+
+function updatePrize(){
+  prize = idx>0? ladder[idx-1] : 0;
+  prizeEl.textContent = `$${prize.toLocaleString()}`;
+  scoreEl.textContent = score;
+}
+
+// sonido: usar WebAudio para efectos (embed en el archivo mediante código)
+const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+function playTone(freq, duration=0.2, type='sine'){
+  const o = audioCtx.createOscillator();
+  const g = audioCtx.createGain();
+  o.type = type; o.frequency.value = freq;
+  o.connect(g); g.connect(audioCtx.destination);
+  g.gain.setValueAtTime(0.0001, audioCtx.currentTime);
+  g.gain.exponentialRampToValueAtTime(0.2, audioCtx.currentTime+0.01);
+  o.start();
+  setTimeout(()=>{ g.gain.exponentialRampToValueAtTime(0.0001, audioCtx.currentTime+0.01); o.stop(audioCtx.currentTime+0.03); }, duration*1000);
+}
+function suspenseSequence(){
+  sbar.style.width = '0%';
+  void sbar.offsetWidth;
+  sbar.style.width = '100%';
+}
+
+function playCorrect(){ playTone(880,0.18,'sine'); setTimeout(()=>playTone(1100,0.12,'sine'),180); }
+function playWrong(){ playTone(220,0.26,'sawtooth'); setTimeout(()=>playTone(120,0.26,'sawtooth'),260); }
+function playWin(){ playTone(1200,0.14,'sine'); setTimeout(()=>playTone(1400,0.12,'sine'),140); setTimeout(()=>playTone(1800,0.12,'sine'),260); }
+function playSelect(){ playTone(600,0.07,'square'); }
+
+// elegir respuesta
+function choose(choice, el){
+  // bloquear opciones
+  Array.from(document.querySelectorAll('.option')).forEach(o=> o.classList.add('disabled'));
+  playSelect();
+  suspenseSequence();
+  messageEl.textContent = 'Revelando respuesta...';
+
+  // esperar un poco (usamos animaciones JS)
+  setTimeout(()=>{
+    // marcar correcta y seleccionada
+    const correctIdx = questions[idx].c;
+    const opts = document.querySelectorAll('.option');
+    opts.forEach((o,i)=>{
+      if(i===correctIdx){ o.classList.add('correct'); }
+      if(i===choice && i!==correctIdx){ o.classList.add('wrong'); }
+    });
+
+    if(choice === correctIdx){
+      playCorrect();
+      messageEl.textContent = '✔ ¡Correcto!';
+      score += ladder[idx];
+      idx++;
+      updatePrize();
+      if(idx >= questions.length){
+        // victoria total
+        setTimeout(()=>{
+          playWin();
+          messageEl.innerHTML = '🏆 ¡Has ganado el millón dorado del Amazonas!';
+          storeBest();
+        },900);
+      } else {
+        setTimeout(()=>{ messageEl.textContent=''; loadQuestion(); },900);
+      }
+    } else {
+      playWrong();
+      messageEl.textContent = '✘ Incorrecto. Fin del juego.';
+      // mostrar premio seguro (nivel 5 y 10)
+      storeBest();
+    }
+  },900);
+}
+
+// ayudas
+function use5050(){
+  if(used5050) return;
+  used5050 = true; document.getElementById('btn5050').disabled = true; document.getElementById('btn5050').textContent='50/50 (usado)';
+  const correct = questions[idx].c;
+  const opts = Array.from(document.querySelectorAll('.option'));
+  let removed = 0;
+  // quitar dos opciones incorrectas
+  for(let i=0;i<opts.length && removed<2;i++){
+    if(i!==correct){ opts[i].classList.add('disabled'); removed++; }
+  }
+}
+
+function useAudience(){
+  if(usedAudience) return;
+  usedAudience = true; document.getElementById('btnaud').disabled = true; document.getElementById('btnaud').textContent='Público (usado)';
+  const correct = questions[idx].c;
+  // mostrar mensaje con porcentaje probable
+  const perc = 60 + Math.floor(Math.random()*25); // 60-84% chance
+  messageEl.innerHTML = `📊 El público piensa que la opción <b>${questions[idx].a[correct]}</b> tiene ~${perc}% de apoyo.`;
+}
+
+function useCall(){
+  if(usedCall) return;
+  usedCall = true; document.getElementById('btncall').disabled=true; document.getElementById('btncall').textContent='Chamán (usado)';
+  const hints = [
+    '🧙‍♂️ El chamán susurra: escucha al viento — la respuesta correcta está ligada a la luna.',
+    '🌿 El espíritu te recuerda: las flautas maguaré conectan mundos.',
+    '✨ Yurupary enseña a respetar la selva. Confía en la tradición.'
+  ];
+  messageEl.innerHTML = hints[Math.floor(Math.random()*hints.length)];
+}
+
+// retirarse
+function walkAway(){
+  storeBest();
+  messageEl.innerHTML = `Te retiras con $${prize.toLocaleString()}. ¡Bien hecho!`;
+  Array.from(document.querySelectorAll('.option')).forEach(o=> o.classList.add('disabled'));
+}
+
+// guardar mejor puntaje local
+function storeBest(){
+  const prev = parseInt(localStorage.getItem('yy_best')||'0',10);
+  if(score>prev) localStorage.setItem('yy_best', String(score));
+  best.textContent = localStorage.getItem('yy_best') || '0';
+}
+
+// eventos botones
+document.getElementById('btn5050').addEventListener('click', use5050);
+document.getElementById('btnaud').addEventListener('click', useAudience);
+document.getElementById('btncall').addEventListener('click', useCall);
+document.getElementById('btnwalk').addEventListener('click', walkAway);
+
+// init
+renderLadder(); loadQuestion(); storeBest();
+
+// Nota: para activar audio en algunos navegadores, se requiere interacción previa (click). Este juego usa WebAudio dinámicamente.
+</script>
+</body>
+</html>
